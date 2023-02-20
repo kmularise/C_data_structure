@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/02/20 21:01:08 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/02/20 21:19:16 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,4 @@ void	print_list_reverse(t_node **head)
 		curr_node = curr_node->prev;
 	}
 	printf("%d ", curr_node->data);
-}
-
-void	rotate_list(t_node **head, int count)
-{
-	if (count > 0)
-	{
-		while (--count != -1)
-			*head = (*head)->next;
-	}
-	else if (count < 0)
-	{
-		while (++count != 1)
-			*head = (*head)->prev;
-	}
 }
