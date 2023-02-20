@@ -1,0 +1,1 @@
+cc -Wall -Wextra -Werror stack.c main.c
