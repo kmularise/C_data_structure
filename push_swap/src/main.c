@@ -22,7 +22,7 @@ int main()
 	print_list(&head);
 	printf("\n");
 	print_list_reverse(&head);
-	rotate_list(&head, 2);
+	// rotate_list(&head, 2);
 	printf("\n");
 	print_list(&head);
 	printf("\n");

@@ -11,6 +11,11 @@ typedef	struct s_node {
 	struct s_node	*next;
 }	t_node;
 
+typedef struct s_stack {
+	int size;
+	struct s_node *head;
+} t_stack;
+
 t_node	*create_node(int data);
 void	push_node(t_node **head, t_node *node);
 void	print_list(t_node **head);
