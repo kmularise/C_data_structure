@@ -22,5 +22,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, int start, int len);
 char	**ft_split(char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
-
+int	ft_atoi(char *str);
+int	ft_isdigit(char c);
 #endif
