@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/02/20 21:19:16 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/01 19:33:24 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	print_list(t_node **head)
 		printf("%d ", curr_node->data);
 		curr_node = curr_node->next;
 	}
-	printf("%d ", curr_node->data);
+	printf("%d\n", curr_node->data);
 }
 
 void	print_list_reverse(t_node **head)
@@ -90,5 +90,5 @@ void	print_list_reverse(t_node **head)
 		printf("%d ", curr_node->data);
 		curr_node = curr_node->prev;
 	}
-	printf("%d ", curr_node->data);
+	printf("%d\n", curr_node->data);
 }
