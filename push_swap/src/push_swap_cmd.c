@@ -17,6 +17,8 @@ void	execute_s(t_stack **stack)
 	t_node	*top_node;
 	int		temp;
 
+	if ((*stack)->size < 2)
+		return;
 	top_node = (*stack)->top;
 	temp = top_node->data;
 	top_node->data = top_node->next->data;
