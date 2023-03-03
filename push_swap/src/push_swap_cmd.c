@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:25:40 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/01 19:57:11 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/03 11:36:54 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	execute_p(t_stack **push_stack, t_stack **pop_stack)
 	pop_node(&(*pop_stack)->top);
 	temp_node = create_node(temp);
 	push_node(&((*push_stack)->top), temp_node);
-	(*pop_stack)->size+=1;
+	(*push_stack)->size+=1;
 }
 
 void	execute_r(t_stack **stack)
 {
-	rotate_list(&((*stack)->top), -1);
+	rotate_list(&((*stack)->top), 1);
 }
 
 void	execute_rr(t_stack **stack)
 {
-	rotate_list(&((*stack)->top), 1);
+	rotate_list(&((*stack)->top), -1);
 }

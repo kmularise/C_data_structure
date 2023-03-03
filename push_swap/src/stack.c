@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/01 19:33:24 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/03 11:44:19 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ void	pop_node(t_node **head)
 		return ;
 	current_node = *head;
 	next_node = current_node->next;
-	prev_node = current_node->prev;
-	*head = next_node;
-	(*head)->prev = current_node->prev;
-	prev_node->next = current_node->next;
-	free(current_node);
+	if (current_node == next_node)
+		*head = NULL;
+	else
+	{
+		prev_node = current_node->prev;
+		*head = next_node;
+		(*head)->prev = current_node->prev;
+		prev_node->next = current_node->next;
+	}
 }
 
 void	print_list(t_node **head)
