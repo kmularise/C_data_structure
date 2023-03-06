@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/06 10:42:44 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/06 20:27:08 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,8 @@ int main(int argc, char **argv)
 	sort(&sorted_list, argc - 1, argv);
 	get_pivot(&stat, sorted_list, argc - 1);
 	init_stack(&a, &b, argv, &stat);
-	// do_partition(&a, &b, &stat);
+	do_partition(&a, &b, &stat);
+	// find_count_rb(b->top, 13);
 	//min ~ pivot1 설정
 	//pivot1 ~ pivot2 설정 가능
 	//pivot2 ~max 설정 가능
@@ -151,9 +152,13 @@ int main(int argc, char **argv)
 	// execute_s(&a);
 	// print_list_reverse(&(a->top));
 	// execute_p(&b, &a);
-	print_list_reverse(&(a->top));
+	print_list_reverse_idx(&(a->top));
 	// print_list_reverse_idx(&(a->top));
-	print_list_reverse(&(b->top));
+	print_list_reverse_idx(&(b->top));
+	printf("dfsdf %d\n", find_count_rb(b->top, 3));
+	printf("dfsdf %d\n", find_count_rrb(b->top, 3));
+	printf("dfsdf %d\n", find_count_ra(b->top, 0, 14));
+	// printf("dfsdf %d\n", find_count_rra(b->top, 5));
 	// execute_rr(&a);
 	// print_list_reverse(&(a->top));
 
