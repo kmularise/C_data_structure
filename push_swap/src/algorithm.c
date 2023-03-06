@@ -89,10 +89,12 @@ int	find_count_rb(t_node *a_top, int idx)
 	return (-1);
 }
 
-int	find_count_rrb(t_node *a_top, int idx)
+int	find_count_rrb(t_node *b_top, int idx)
 {
-	t_node *temp;
-	int count;
+	t_node	*temp;
+	int		count;
+	
+	temp = b_top;
 	while (1)
 	{
 		if (temp->idx == idx)
@@ -103,7 +105,25 @@ int	find_count_rrb(t_node *a_top, int idx)
 	return (-1);
 }
 
-int	find_count_b()
+int	find_count_a(t_node *a_top, int idx)
 {
 	t_node *temp;
+	t_node *a_bottom;
+
+	temp = a_top;
+	a_bottom = a_top->prev;
+	if (a_bottom->data > a_top->data)//정렬이 되어 있는 상태
+	{
+		if (a_bottom->data > idx)
+
+	}
+	else//완전 정렬은 안되어 있는 상태
+	{
+
+	}
+	while (1)
+	{
+		if (temp->idx == idx)
+			return count;
+	}
 }

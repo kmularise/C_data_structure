@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/03 15:00:06 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/06 10:42:44 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ int main(int argc, char **argv)
 	sort(&sorted_list, argc - 1, argv);
 	get_pivot(&stat, sorted_list, argc - 1);
 	init_stack(&a, &b, argv, &stat);
-	do_partition(&a, &b, &stat);
+	// do_partition(&a, &b, &stat);
 	//min ~ pivot1 설정
 	//pivot1 ~ pivot2 설정 가능
 	//pivot2 ~max 설정 가능
