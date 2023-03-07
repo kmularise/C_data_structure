@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/06 20:27:08 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/07 11:18:36 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,9 @@ int main(int argc, char **argv)
 	print_list_reverse_idx(&(b->top));
 	printf("dfsdf %d\n", find_count_rb(b->top, 3));
 	printf("dfsdf %d\n", find_count_rrb(b->top, 3));
-	printf("dfsdf %d\n", find_count_ra(b->top, 0, 14));
+	printf("dfsdf %d\n", find_count_ra(a->top, 14));
+	printf("dfsdf %d\n", find_count_rra(a->top, 14));
+	
 	// printf("dfsdf %d\n", find_count_rra(b->top, 5));
 	// execute_rr(&a);
 	// print_list_reverse(&(a->top));

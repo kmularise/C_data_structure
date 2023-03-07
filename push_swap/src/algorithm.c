@@ -109,6 +109,44 @@ int	find_count_rrb(t_node *b_top, int idx)
 	return (-1);
 }
 
+// int	find_count_rra(t_node *a_top, int idx)
+// {
+// 	t_node	*temp;
+// 	t_node	*a_bottom;
+// 	int	count;
+
+// 	temp = a_top;
+// 	a_bottom = a_top->prev;
+// 	count = 0;
+// 	if (a_bottom->idx > a_top->idx)//정렬이 되어 있는 상태
+// 	{
+// 		while(1)
+// 		{
+// 			if (a_bottom->idx > idx)
+// 				return (count);
+// 			temp = temp->prev;
+// 			count++;
+// 		}
+// 	}
+// 	else//완전 정렬은 안되어 있는 상태
+// 	{
+// 		while (1)
+// 		{
+// 			if (a_bottom->idx < idx && idx < a_top->idx)
+// 				return (count);
+// 			temp = temp->prev;
+// 			count++;
+// 		}
+// 	}
+// 	return (-1);
+// }
+
+// int find_count_rra(t_node *a_top, int idx)
+// {
+// 	t
+// }
+
+//왜 해결이 안되냐
 int	find_count_rra(t_node *a_top, int idx)
 {
 	t_node	*temp;
@@ -118,30 +156,21 @@ int	find_count_rra(t_node *a_top, int idx)
 	temp = a_top;
 	a_bottom = a_top->prev;
 	count = 0;
-	if (a_bottom->idx > a_top->idx)//정렬이 되어 있는 상태
+	while (1)
 	{
-		while(1)
-		{
-			if (a_bottom->idx > idx)
-				return (count);
-			temp = temp->prev;
-			count++;
-		}
+		if (temp->idx < idx && idx < temp->prev->idx)
+			return (count);
+		if (idx < temp->prev->idx && temp->idx < temp->prev->idx)
+			return (count);
+		temp = temp->prev;
+		count++;
+		if (temp->idx == a_top->idx)
+			break ;
 	}
-	else//완전 정렬은 안되어 있는 상태
-	{
-		while (1)
-		{
-			if (a_bottom->idx < idx && idx < a_top->idx)
-				return (count);
-			temp = temp->prev;
-			count++;
-		}
-	}
-	return (-1);
+	return (count);
 }
 
-int	find_count_ra(t_node *a_top, int idx, int max_idx, int min_idx)
+int find_count_ra(t_node *a_top, int idx)
 {
 	t_node	*temp;
 	t_node	*a_bottom;
@@ -150,27 +179,16 @@ int	find_count_ra(t_node *a_top, int idx, int max_idx, int min_idx)
 	temp = a_top;
 	a_bottom = a_top->prev;
 	count = 0;
-	if (idx == max_idx)
-		return (1);
-	if (a_bottom->idx > a_top->idx)//정렬이 되어 있는 상태
+	while (1)
 	{
-		while(1)
-		{
-			if (a_bottom->idx > idx)
-				return (count);
-			temp = temp->next;
-			count++;
-		}
+		if (a_top->idx < idx && idx < a_bottom->idx)
+			return (count);
+		if (idx < a_bottom->idx && a_top->idx < a_bottom->idx)
+			return (count);
+		temp = temp->next;
+		count++;
+		if (temp->idx == a_top->idx)
+			break ;
 	}
-	else//완전 정렬은 안되어 있는 상태
-	{
-		while (1)
-		{
-			if (a_bottom->idx < idx && idx < a_top->idx)
-				return (count);
-			temp = temp->next;
-			count++;
-		}
-	}
-	return (-1);
+	return (count);
 }

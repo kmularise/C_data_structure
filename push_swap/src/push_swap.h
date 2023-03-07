@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/06 20:21:32 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/07 11:02:09 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ void	do_partition(t_stack **a, t_stack **b, t_stat *stat);
 
 int		find_count_rb(t_node *a_top, int idx);
 int		find_count_rrb(t_node *b_top, int idx);
-int		find_count_ra(t_node *a_top, int idx, int max_idx);
+int		find_count_ra(t_node *a_top, int idx);
 int		find_count_rra(t_node *a_top, int idx);
 
+//마지막에 
 
 #endif
