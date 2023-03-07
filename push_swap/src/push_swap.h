@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/07 11:02:09 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:42:27 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ void	show_rr(t_stack **a, t_stack **b, char idx);
 void	show_error(char *message);
 int		binary_search(int value, int start, int end, int *list);
 int		get_index(int value, int *list, int count);
+int		min (int num1, int num2);
 
 void	do_two_element(t_stack **a, t_stack **b);
 
 void	do_partition(t_stack **a, t_stack **b, t_stat *stat);
 
-int		find_count_rb(t_node *a_top, int idx);
+int		find_count_rb(t_node *b_top, int idx);
 int		find_count_rrb(t_node *b_top, int idx);
 int		find_count_ra(t_node *a_top, int idx);
 int		find_count_rra(t_node *a_top, int idx);

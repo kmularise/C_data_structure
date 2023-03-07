@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/03 11:44:19 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:05:39 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	pop_node(t_node **head)
 		(*head)->prev = current_node->prev;
 		prev_node->next = current_node->next;
 	}
+	free(current_node);
 }
 
 void	print_list(t_node **head)
