@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/08 08:28:32 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/08 18:30:34 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,9 @@ int main(int argc, char **argv)
 	get_pivot(&stat, sorted_list, argc - 1);
 	init_stack(&a, &b, argv, &stat);
 	do_partition(&a, &b, &stat);
-	select_best_idx(&a, &b, &stat);
+	do_sorting(&a, &b, &stat);
 	print_list_reverse_idx(&(a->top));
 	print_list_reverse_idx(&(b->top));
 
-
-	// system("leaks a.out");
+	system("leaks a.out");
 }

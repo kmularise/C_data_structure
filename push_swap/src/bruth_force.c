@@ -12,7 +12,10 @@ int find_count_ra(t_node *a_top, int idx)
 	while (1)
 	{
 		if (temp->idx > idx && (temp->idx > temp->prev->idx && idx > temp->prev->idx))
+		{
+			// printf("zzz %d %d %d count %d\n", temp->idx, idx, temp ->prev->idx, count);
 			return (count);
+		}
 		if (idx < temp->idx && temp->idx < temp->prev->idx)
 			return (count);
 		temp = temp->next;
@@ -35,9 +38,17 @@ int find_count_rra(t_node *a_top, int idx)
 	while (1)
 	{
 		if (temp->idx > idx && (temp->idx > temp->prev->idx && idx > temp->prev->idx))
+		{
+			if (idx == 29)
+				printf("zzz %d %d %d count %d\n", temp->idx, idx, temp ->prev->idx, count);
 			return (count);
+		}
 		if (idx < temp->idx && temp->idx < temp->prev->idx)
+		{
+			if (idx == 29)
+				printf("zzz %d %d %d count %d\n", temp->idx, idx, temp ->prev->idx, count);
 			return (count);
+		}
 		temp = temp->prev;
 		count++;
 		if (temp->idx == a_top->idx)

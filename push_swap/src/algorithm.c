@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:44:40 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/08 10:46:37 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/08 19:06:59 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ int	*select_best_idx(t_stack **a, t_stack **b, t_stat *stat)
 	t_node	*temp;
 	int		info[4];
 	int		min_value;
-	int		min_idx[5];
+	int		*min_idx;
 	int		i; 
 
 	min_value = 2147483647;
+	min_idx = malloc(sizeof(int) * 5);
 	min_idx[0] = -1;
 	temp = (*b)->top;
 	// while (temp->idx >= stat->pivot2)
@@ -76,5 +77,43 @@ int	*select_best_idx(t_stack **a, t_stack **b, t_stat *stat)
 	return (min_idx);
 }
 
-
-void	
+void	do_sorting(t_stack **a, t_stack **b, t_stat *stat)
+{
+	int *min_idx;
+	int j = 0;
+	int i;
+	while ((*b)->size > 0 && j < 2)
+	{
+		min_idx = select_best_idx(a, b, stat);
+		printf("min %d\n", min_idx[0]);
+		while (++i < min_idx[4])
+		{
+			if (min_idx[3] == RB)
+				show_r(a, b, 'b');
+			else
+				show_rr(a, b, 'b');
+		}
+		// printf("\n");
+		// while (1)
+		// {
+		// 	if (min_idx[3] == RB)
+		// 		show_r(a, b, 'b');
+		// 	else
+		// 		show_rr(a, b, 'b');
+		// 	if ((*b)->top->idx == min_idx[0])
+		// 		break ;
+		// }
+		i = -1;
+		while (++i < min_idx[2])
+		{
+			if (min_idx[0] == RA)
+				show_r(a, b, 'a');
+			else
+				show_rr(a, b, 'a');
+		}
+		if (j == 0)
+			show_p(a, b, 'a');
+		free(min_idx);
+		j++;
+	}
+}
