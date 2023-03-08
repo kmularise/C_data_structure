@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/08 09:44:40 by yuikim            #+#    #+#             */
+/*   Updated: 2023/03/08 10:46:37 by yuikim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "push_swap.h"
 
 
@@ -27,33 +39,42 @@ void	do_partition(t_stack **a, t_stack **b, t_stat *stat)
 			show_p(a, b, 'b');
 		i++;
 	}
-	while ((*a)->size > 0)
+	while ((*a)->size > 2)
 	{
 		show_p(a, b, 'b');
 	}
 }
 
-void	select_best_idx(t_stack **a, t_stack **b, t_stat *stat)
+int	*select_best_idx(t_stack **a, t_stack **b, t_stat *stat)
 {
 	t_node	*temp;
-	int		answer;
+	int		info[4];
 	int		min_value;
-	int		min_idx;
+	int		min_idx[5];
+	int		i; 
 
 	min_value = 2147483647;
-	min_idx = -1;
-	temp = (*a)->top;
+	min_idx[0] = -1;
+	temp = (*b)->top;
 	// while (temp->idx >= stat->pivot2)
 	while (1)
 	{
-		answer = min(find_count_ra((*a)->top, temp->idx), find_count_rra((*a)->top, temp->idx));
-		answer += min(find_count_rb((*b)->top, temp->idx), find_count_rrb((*b)->top, temp->idx));
-		if (min_value > answer)
-			min_idx = temp->idx;
+		get_min_node_info((*a)->top, (*b)->top, temp, info);
+		if (min_value > info[1] + info[3])
+		{
+			min_value = info[1] + info[3];
+			min_idx[0] = temp->idx;
+			i = -1;
+			while (++i < 4)
+				min_idx[i + 1] = info[i];  
+		}
 		temp = temp->next;
-		if (temp->idx == (*a)->top->idx)
+		if (temp->idx == (*b)->top->idx)
 			break ;
+		i++;
 	}
-	// printf("%d ")
-	
+	return (min_idx);
 }
+
+
+void	

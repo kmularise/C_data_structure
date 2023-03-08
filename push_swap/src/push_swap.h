@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/07 17:42:27 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/08 10:43:19 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+
+# define RA 0
+# define RRA 1
+# define RB 0
+# define RRB 1
 
 typedef struct s_stat{
 	int	pivot1;
@@ -60,15 +65,19 @@ void	show_error(char *message);
 int		binary_search(int value, int start, int end, int *list);
 int		get_index(int value, int *list, int count);
 int		min (int num1, int num2);
+void	get_min_node_info (t_node *a_top, t_node *b_top, t_node *temp, int *info);
 
 void	do_two_element(t_stack **a, t_stack **b);
 
 void	do_partition(t_stack **a, t_stack **b, t_stat *stat);
+int		select_best_idx(t_stack **a, t_stack **b, t_stat *stat);
 
 int		find_count_rb(t_node *b_top, int idx);
 int		find_count_rrb(t_node *b_top, int idx);
 int		find_count_ra(t_node *a_top, int idx);
 int		find_count_rra(t_node *a_top, int idx);
+
+
 
 //마지막에 
 
