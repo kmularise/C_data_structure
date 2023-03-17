@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/08 18:30:34 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/17 18:49:49 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,5 @@ int main(int argc, char **argv)
 	print_list_reverse_idx(&(a->top));
 	print_list_reverse_idx(&(b->top));
 
-	system("leaks a.out");
+	// system("leaks a.out");
 }

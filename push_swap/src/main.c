@@ -27,5 +27,5 @@ int main()
 	print_list(&head);
 	printf("\n");
 	print_list_reverse(&head);
-	system("leaks a.out");
+	// system("leaks a.out");
 }
