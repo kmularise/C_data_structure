@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/08 18:29:56 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/17 22:55:04 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ int		find_count_rrb(t_node *b_top, int idx);
 int		find_count_ra(t_node *a_top, int idx);
 int		find_count_rra(t_node *a_top, int idx);
 void	do_sorting(t_stack **a, t_stack **b, t_stat *stat);
+void	get_last_member_max(t_stack **a, t_stack **b, t_stat *stat);
 
+int	is_sorted(int argc, char **argv);
 
 //마지막에 
 

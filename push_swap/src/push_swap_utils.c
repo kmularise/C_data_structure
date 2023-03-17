@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:42:27 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/08 10:42:40 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/17 21:43:13 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void get_min_node_info (t_node *a_top, t_node *b_top, t_node *temp, int *info)
 	int	count_rrb;
 
 	//info 0 1 2 3 각각 flag, count를 의미함
+	// printf("temp-> idx : %d %d %d %d %d\n",temp->idx, count_ra, count_rra, count_rb, count_rrb);
 	count_ra = find_count_ra(a_top, temp->idx);
 	count_rra = find_count_rra(a_top, temp->idx);
 	count_rb = find_count_rb(b_top, temp->idx);

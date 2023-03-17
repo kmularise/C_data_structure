@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:44:40 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 18:43:45 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/17 22:23:14 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	do_partition(t_stack **a, t_stack **b, t_stat *stat)
 	int	i;
 
 	i = 0;
-	printf("pivots %d %d\n", stat->pivot1, stat->pivot2);
+	// printf("pivots %d %d\n", stat->pivot1, stat->pivot2);
 	while (i < stat->count )
 	{
 		if ((*a)->top->idx >= stat->pivot2)
@@ -82,10 +82,15 @@ void	do_sorting(t_stack **a, t_stack **b, t_stat *stat)
 	int *min_idx;
 	int j = 0;
 	int i;
-	while ((*b)->size > 0 && j < 2)
+	while ((*b)->size > 0 /*&& j < 21*/)
 	{
 		min_idx = select_best_idx(a, b, stat);
-		printf("min %d\n", min_idx[0]);
+		// printf("min %d\n", min_idx[0]);
+		// for (int jj = 1; jj <5; jj++)
+		// {
+		// 	printf("%d ", min_idx[jj]);
+		// }
+		// printf("\n");
 		i = -1;
 		while (++i < min_idx[4])
 		{
@@ -97,14 +102,69 @@ void	do_sorting(t_stack **a, t_stack **b, t_stat *stat)
 		i = -1;
 		while (++i < min_idx[2])
 		{
-			if (min_idx[0] == RA)
+			if (min_idx[1] == RA)
 				show_r(a, b, 'a');
 			else
 				show_rr(a, b, 'a');
 		}
-		if (j == 0)
-			show_p(a, b, 'a');
+		// if (j != 1)
+		// 	show_p(a, b, 'a');
+		show_p(a, b, 'a');
 		free(min_idx);
 		j++;
 	}
+}
+
+int	get_last_ra_count(t_stack **a)
+{
+	int	count;
+	t_node	*temp;
+
+	temp = (*a)->top;
+	count = 0;
+	while (1)
+	{
+		if (temp->idx == 0)
+			break ;
+		count++;
+		temp = temp->next;
+	}
+	return (count);
+}
+
+int	get_last_rra_count(t_stack **a)
+{
+	int	count;
+	t_node	*temp;
+
+	temp = (*a)->top;
+	count = 0;
+	while (1)
+	{
+		if (temp->idx == 0)
+			break ;
+		count++;
+		temp = temp->prev;
+	}
+	return (count);
+}
+
+
+void	get_last_member_max(t_stack **a, t_stack **b, t_stat *stat)
+{
+	int	ra_count;
+	int	rra_count;
+	int	i;
+
+	ra_count = get_last_ra_count(a);
+	rra_count = get_last_rra_count(a);
+	// printf("%d %d", ra_count, rra_count);
+	i = -1;
+
+	if (ra_count < rra_count)
+		while (++i < ra_count)
+			show_r(a, b, 'a');
+	else
+		while (++i < rra_count)
+			show_rr(a, b, 'a');
 }

@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 18:49:49 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/17 22:54:52 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,11 +140,21 @@ int main(int argc, char **argv)
 		show_error("Error\n");
 	if (!check_right_cmd(argv))
 		show_error("Error\n");
+	
+	if(is_sorted(argc, argv))
+		exit(0);
+	
+
 	sort(&sorted_list, argc - 1, argv);
 	get_pivot(&stat, sorted_list, argc - 1);
 	init_stack(&a, &b, argv, &stat);
+
+	// if (argc < 5)
+	// 	handle_few_input_case();
+	// handle_general_input_case();
 	do_partition(&a, &b, &stat);
 	do_sorting(&a, &b, &stat);
+	get_last_member_max(&a, &b, &stat);
 	print_list_reverse_idx(&(a->top));
 	print_list_reverse_idx(&(b->top));
 
