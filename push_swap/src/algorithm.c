@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:44:40 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 22:23:14 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:15:14 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	do_partition(t_stack **a, t_stack **b, t_stat *stat)
 
 	i = 0;
 	// printf("pivots %d %d\n", stat->pivot1, stat->pivot2);
-	while (i < stat->count )
+	while (i < stat->count)
 	{
 		if ((*a)->top->idx >= stat->pivot2)
 			show_r(a, b, 'a');

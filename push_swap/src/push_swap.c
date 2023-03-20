@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/20 17:04:37 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:15:35 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,10 +160,10 @@ int main(int argc, char **argv)
 	}
 	// handle_general_input_case();
 	do_partition(&a, &b, &stat);
-	do_sorting(&a, &b, &stat);
+	// do_sorting(&a, &b, &stat);
 	// get_last_member_max(&a, &b, &stat);
 	print_list_reverse_idx(&(a->top));
-	print_list_reverse_idx(&(b->top));
+	// print_list_reverse_idx(&(b->top));
 
 	// system("leaks a.out");
 }
