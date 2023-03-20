@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 22:54:52 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/20 16:39:58 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int	check_right_cmd(char **argv)
 			return (0);
 	return (1);
 }
+
 void	init_stack(t_stack **a, t_stack **b, char **argv, t_stat *stat)
 {
 	int		i;
 	t_node	*temp;
 
-	i = 1;
+	i = stat->count;
 	*a = malloc(sizeof(t_stack));
 	*b = malloc(sizeof(t_stack));
 	(*b)->top = NULL;
@@ -52,21 +53,14 @@ void	init_stack(t_stack **a, t_stack **b, char **argv, t_stat *stat)
 	(*a)->top = create_node(ft_atoi(argv[i]));
 	(*a)->top->idx = get_index(ft_atoi(argv[i]), stat->list, stat->count);
 	(*a)->size = 1;
-	while (argv[++i])
+	while (--i > 0)
 	{
 		temp = create_node(ft_atoi(argv[i]));
 		temp->idx = get_index(ft_atoi(argv[i]), stat->list, stat->count);
 		push_node(&((*a)->top), temp);
 		(*a)->size += 1;
 	}
-
 }
-
-// void	show_error(char *message)
-// {
-// 	ft_putstr_fd(message, 2);
-// 	exit(1);
-// }
 
 void quick_sort(int *list, int first, int last)
 {
@@ -128,6 +122,19 @@ void	get_pivot(t_stat *stat, int *list, int count)
 
 }
 
+void	check_same_number(int *sorted_list, int argc)
+{
+	int	count;
+	int	i;
+	
+	count = argc - 1;
+	i = -1;
+	while (++i < count - 1)
+	{
+		if (sorted_list[i] == sorted_list[i + 1])
+			show_error("Error\n");
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -140,23 +147,28 @@ int main(int argc, char **argv)
 		show_error("Error\n");
 	if (!check_right_cmd(argv))
 		show_error("Error\n");
-	
 	if(is_sorted(argc, argv))
 		exit(0);
-	
-
 	sort(&sorted_list, argc - 1, argv);
+	check_same_number(sorted_list, argc);
 	get_pivot(&stat, sorted_list, argc - 1);
 	init_stack(&a, &b, argv, &stat);
 
+	if (stat.count <= 5)
+	{
+		// printf("%d\n", stat.count);
+		handle_few_input_case(&a, &b, &stat);
+		print_list_reverse_idx(&(a->top));
+		print_list_reverse_idx(&(b->top));
+	}
 	// if (argc < 5)
 	// 	handle_few_input_case();
 	// handle_general_input_case();
-	do_partition(&a, &b, &stat);
-	do_sorting(&a, &b, &stat);
-	get_last_member_max(&a, &b, &stat);
-	print_list_reverse_idx(&(a->top));
-	print_list_reverse_idx(&(b->top));
+	// do_partition(&a, &b, &stat);
+	// do_sorting(&a, &b, &stat);
+	// get_last_member_max(&a, &b, &stat);
+	// print_list_reverse_idx(&(a->top));
+	// print_list_reverse_idx(&(b->top));
 
 	// system("leaks a.out");
 }

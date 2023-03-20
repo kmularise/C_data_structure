@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 22:55:04 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/20 14:18:07 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ void	do_sorting(t_stack **a, t_stack **b, t_stat *stat);
 void	get_last_member_max(t_stack **a, t_stack **b, t_stat *stat);
 
 int	is_sorted(int argc, char **argv);
+
+void	handle_few_input_case(t_stack **a, t_stack **b, t_stat *stat);
+void	do_two_element(t_stack **a, t_stack **b);
+void	do_three_element(t_stack **a, t_stack **b, int opt);
+void	do_four_element(t_stack **a, t_stack **b);
+void	do_five_element(t_stack **a, t_stack **b);
 
 //마지막에 
 
