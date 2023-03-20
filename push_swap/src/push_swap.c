@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/20 16:39:58 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:04:37 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,19 +156,14 @@ int main(int argc, char **argv)
 
 	if (stat.count <= 5)
 	{
-		// printf("%d\n", stat.count);
 		handle_few_input_case(&a, &b, &stat);
-		print_list_reverse_idx(&(a->top));
-		print_list_reverse_idx(&(b->top));
 	}
-	// if (argc < 5)
-	// 	handle_few_input_case();
 	// handle_general_input_case();
-	// do_partition(&a, &b, &stat);
-	// do_sorting(&a, &b, &stat);
+	do_partition(&a, &b, &stat);
+	do_sorting(&a, &b, &stat);
 	// get_last_member_max(&a, &b, &stat);
-	// print_list_reverse_idx(&(a->top));
-	// print_list_reverse_idx(&(b->top));
+	print_list_reverse_idx(&(a->top));
+	print_list_reverse_idx(&(b->top));
 
 	// system("leaks a.out");
 }
