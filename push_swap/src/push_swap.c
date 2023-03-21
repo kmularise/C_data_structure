@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:49:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/20 17:15:35 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 15:14:58 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ void	sort(int **sorted_list, int count, char **argv)
 
 void	get_pivot(t_stat *stat, int *list, int count)
 {
-	stat->pivot1 = list[(count - 1) / 3];
-	stat->pivot2 = list[(2 * count - 2) / 3];
+	stat->pivot1 = (count - 1) / 3;
+	stat->pivot2 = (2 * count - 2) / 3;
 	stat->count = count;
 	stat->max = list[count - 1];
 	stat->list = list;
@@ -132,7 +132,7 @@ void	check_same_number(int *sorted_list, int argc)
 	while (++i < count - 1)
 	{
 		if (sorted_list[i] == sorted_list[i + 1])
-			show_error("Error\n");
+			show_error("smae Error\n");
 	}
 }
 
@@ -155,14 +155,12 @@ int main(int argc, char **argv)
 	init_stack(&a, &b, argv, &stat);
 
 	if (stat.count <= 5)
-	{
 		handle_few_input_case(&a, &b, &stat);
-	}
 	// handle_general_input_case();
 	do_partition(&a, &b, &stat);
-	// do_sorting(&a, &b, &stat);
-	// get_last_member_max(&a, &b, &stat);
-	print_list_reverse_idx(&(a->top));
+	do_sorting(&a, &b, &stat);
+	get_last_member_max(&a, &b, &stat);
+	// print_list_reverse_idx(&(a->top));
 	// print_list_reverse_idx(&(b->top));
 
 	// system("leaks a.out");

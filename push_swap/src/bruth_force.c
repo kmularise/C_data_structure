@@ -11,6 +11,22 @@ int find_count_ra(t_node *a_top, int idx)
 	count = 0;
 	while (1)
 	{
+		// if (temp->idx > temp->next->idx && temp->next->idx > temp->prev->idx)
+		// {
+		// 	if (temp->idx > idx)
+		// 		return (count);
+		// }
+		// if (temp->next->idx > temp->idx && temp->idx > temp->prev->idx)
+		// {
+		// 	if (temp->idx > idx && idx > temp->prev->idx)
+		// 		return (count);
+		// }
+		// temp = temp->next;
+		// count++;
+		// if (temp->idx == a_top->idx)
+		// 	break ;
+		if (idx > temp->prev->idx && temp->prev->idx > temp->idx)
+			return (count);
 		if (temp->idx > idx && (temp->idx > temp->prev->idx && idx > temp->prev->idx))
 		{
 			// printf("zzz %d %d %d count %d\n", temp->idx, idx, temp ->prev->idx, count);
@@ -37,20 +53,33 @@ int find_count_rra(t_node *a_top, int idx)
 	count = 0;
 	while (1)
 	{
-		if (temp->idx > temp->next->idx && temp->next->idx > temp->prev->idx)
+		if (idx > temp->prev->idx && temp->prev->idx > temp->idx)
+			return (count);
+		if (temp->idx > idx && (temp->idx > temp->prev->idx && idx > temp->prev->idx))
 		{
-			if (temp->idx > idx)
-				return (count);
+			// printf("zzz %d %d %d count %d\n", temp->idx, idx, temp ->prev->idx, count);
+			return (count);
 		}
-		if (temp->next->idx > temp->idx && temp->idx > temp->prev->idx)
-		{
-			if (temp->idx > idx && idx > temp->prev->idx)
-				return (count);
-		}
+		if (idx < temp->idx && temp->idx < temp->prev->idx)
+			return (count);
 		temp = temp->prev;
 		count++;
 		if (temp->idx == a_top->idx)
 			break ;
+		// if (temp->idx > temp->next->idx && temp->next->idx > temp->prev->idx)
+		// {
+		// 	if (temp->idx > idx)
+		// 		return (count);
+		// }
+		// if (temp->next->idx > temp->idx && temp->idx > temp->prev->idx)
+		// {
+		// 	if (temp->idx > idx && idx > temp->prev->idx)
+		// 		return (count);
+		// }
+		// temp = temp->prev;
+		// count++;
+		// if (temp->idx == a_top->idx)
+		// 	break ;
 	}
 	return (count);
 }

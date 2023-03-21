@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:44:40 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/20 17:15:14 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 15:02:02 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	do_partition(t_stack **a, t_stack **b, t_stat *stat)
 	int	i;
 
 	i = 0;
-	// printf("pivots %d %d\n", stat->pivot1, stat->pivot2);
 	while (i < stat->count)
 	{
 		if ((*a)->top->idx >= stat->pivot2)
@@ -82,7 +81,7 @@ void	do_sorting(t_stack **a, t_stack **b, t_stat *stat)
 	int *min_idx;
 	int j = 0;
 	int i;
-	while ((*b)->size > 0 /*&& j < 21*/)
+	while ((*b)->size > 0 /*&& j < 6*/)
 	{
 		min_idx = select_best_idx(a, b, stat);
 		// printf("min %d\n", min_idx[0]);
