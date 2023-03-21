@@ -1,0 +1,1 @@
+cc checker.c ../libft/*.c

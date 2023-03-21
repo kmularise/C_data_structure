@@ -20,6 +20,7 @@
 		"limits": "c",
 		"push_swap.h": "c",
 		"ios": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"libft.h": "c"
 	}
 }

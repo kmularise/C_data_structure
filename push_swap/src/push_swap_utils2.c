@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:41:50 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/21 20:20:45 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 21:52:56 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int	is_sorted(int argc, char **argv)
 {
 	int	i;
 
-	if (argc == 1)
+	if (argc == 2)
+	{
+		ft_atoi(argv[1]);
 		return (1);
+	}
 	i = 0;
 	while (++i < argc - 1)
 	{
@@ -79,6 +82,6 @@ void	check_same_number(int *sorted_list, int argc)
 	while (++i < count - 1)
 	{
 		if (sorted_list[i] == sorted_list[i + 1])
-			show_error("smae Error\n");
+			show_error("Error\n");
 	}
 }

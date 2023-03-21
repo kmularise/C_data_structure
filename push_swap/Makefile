@@ -6,7 +6,7 @@
 #    By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 09:24:41 by yuikim            #+#    #+#              #
-#    Updated: 2023/03/21 21:06:38 by yuikim           ###   ########.fr        #
+#    Updated: 2023/03/21 21:10:09 by yuikim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ SRCS = stack.c\
 	bruth_force.c\
 	push_swap_utils2.c\
 	algorithm2.c\
-	hard_coding2.c\
-	pipex.c
+	hard_coding2.c
 SRCS_BONUS = pipex_bonus.c\
 			child_bonus.c\
 			pipex_utils_bonus.c\
