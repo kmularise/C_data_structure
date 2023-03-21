@@ -6,12 +6,12 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:42:27 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/17 21:43:13 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:22:51 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//show error
+
 void	show_error(char *message)
 {
 	ft_putstr_fd(message, 2);
@@ -23,13 +23,13 @@ int	binary_search(int value, int start, int end, int *list)
 	int	mid;
 
 	if (start > end)
-		return (-1) ;
+		return (-1);
 	mid = (start + end) / 2;
 	if (value == list[mid])
-		return mid;
+		return (mid);
 	if (value < list[mid])
-		return binary_search(value, start, mid - 1, list);
-	return binary_search(value, mid + 1, end, list);
+		return (binary_search(value, start, mid - 1, list));
+	return (binary_search(value, mid + 1, end, list));
 }
 
 int	get_index(int value, int *list, int count)
@@ -37,22 +37,20 @@ int	get_index(int value, int *list, int count)
 	return (binary_search(value, 0, count - 1, list));
 }
 
-int	min (int num1, int num2)
+int	min(int num1, int num2)
 {
 	if (num1 < num2)
 		return (num1);
 	return (num2);
 }
 
-void get_min_node_info (t_node *a_top, t_node *b_top, t_node *temp, int *info)
+void	get_min_node_info(t_node *a_top, t_node *b_top, t_node *temp, int *info)
 {
 	int	count_ra;
 	int	count_rra;
 	int	count_rb;
 	int	count_rrb;
 
-	//info 0 1 2 3 각각 flag, count를 의미함
-	// printf("temp-> idx : %d %d %d %d %d\n",temp->idx, count_ra, count_rra, count_rb, count_rrb);
 	count_ra = find_count_ra(a_top, temp->idx);
 	count_rra = find_count_rra(a_top, temp->idx);
 	count_rb = find_count_rb(b_top, temp->idx);

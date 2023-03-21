@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hard_coding.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/21 19:28:58 by yuikim            #+#    #+#             */
+/*   Updated: 2023/03/21 20:32:12 by yuikim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void handle_few_input_case(t_stack **a, t_stack **b, t_stat *stat)
+void	handle_few_input_case(t_stack **a, t_stack **b, t_stat *stat)
 {
 	if (stat->count == 2)
 		do_two_element(a, b);
@@ -15,13 +27,14 @@ void handle_few_input_case(t_stack **a, t_stack **b, t_stat *stat)
 
 void	do_two_element(t_stack **a, t_stack **b)
 {
-	if ((*a)->top->idx == 0)
+	if ((*a)->top->idx == 1)
 		show_s(a, b, 'a');
 }
 
 void	do_three_element(t_stack **a, t_stack **b, int opt)
 {
-	if ((*a)->top->prev->idx == (2 + opt) % 5 && (*a)->top->idx == (1 + opt) % 5)
+	if ((*a)->top->prev->idx == (2 + opt) % 5
+		&& (*a)->top->idx == (1 + opt) % 5)
 		show_s(a, b, 'a');
 	if ((*a)->top->prev->idx == opt && (*a)->top->idx == (2 + opt) % 5)
 		show_s(a, b, 'a');
@@ -29,7 +42,8 @@ void	do_three_element(t_stack **a, t_stack **b, int opt)
 		show_s(a, b, 'a');
 	if ((*a)->top->prev->idx == opt && (*a)->top->idx == (1 + opt) % 5)
 		show_rr(a, b, 'a');
-	if ((*a)->top->prev->idx == (1 + opt) % 5 && (*a)->top->idx == (2 + opt) % 5)
+	if ((*a)->top->prev->idx == (1 + opt) % 5
+		&& (*a)->top->idx == (2 + opt) % 5)
 		show_r(a, b, 'a');
 }
 
@@ -37,7 +51,7 @@ void	do_four_element(t_stack **a, t_stack **b)
 {
 	if ((*a)->top->prev->idx == 0)
 		show_rr(a, b, 'a');
-	if ((*a)->top->next->idx ==0)
+	if ((*a)->top->next->idx == 0)
 		show_r(a, b, 'a');
 	if ((*a)->top->prev->prev->idx == 0)
 	{
@@ -54,20 +68,18 @@ void	do_four_element(t_stack **a, t_stack **b)
 
 void	do_five_element(t_stack **a, t_stack **b)
 {
-	int	num;
-	int	first_element;
 	int	candidates[2];
-	num = -1;
+
 	show_p(a, b, 'b');
 	candidates[0] = (*b)->top->idx - 1;
 	candidates[1] = (*b)->top->idx + 1;
 	if ((*a)->top->idx == candidates[0] || (*a)->top->idx == candidates[1])
 		;
-	else if ((*a)->top->next->idx == candidates[0] ||
-		(*a)->top->next->idx == candidates[1])
+	else if ((*a)->top->next->idx == candidates[0]
+		|| (*a)->top->next->idx == candidates[1])
 		show_r(a, b, 'a');
-	else if ((*a)->top->prev->idx == candidates[0] ||
-		(*a)->top->prev->idx == candidates[1])
+	else if ((*a)->top->prev->idx == candidates[0]
+		|| (*a)->top->prev->idx == candidates[1])
 		show_rr(a, b, 'a');
 	else
 	{
@@ -78,18 +90,5 @@ void	do_five_element(t_stack **a, t_stack **b)
 	if ((*b)->top->idx < (*b)->top->prev->idx)
 		show_s(a, b, 'b');
 	do_three_element(a, b, ((*b)->top->idx + 1) % 5);
-	show_p(a ,b, 'a');
-	show_p(a, b, 'a');
-	if ((*a)->top->idx >= 3)
-	{
-		while ((*a)->top->idx != 0)
-			show_r(a, b, 'a');
-	}
-	else
-	{
-		while ((*a)->top->idx != 0)
-			show_rr(a, b, 'a');
-	}
-	// print_list_reverse_idx(&((*a)->top));
-	// print_list_reverse_idx(&((*b)->top));
+	make_final_sort(a, b);
 }

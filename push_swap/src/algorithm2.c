@@ -1,29 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hard_coding2.c                                     :+:      :+:    :+:   */
+/*   algorithm2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 19:39:06 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/21 19:57:14 by yuikim           ###   ########.fr       */
+/*   Created: 2023/03/21 19:18:10 by yuikim            #+#    #+#             */
+/*   Updated: 2023/03/21 19:22:01 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	make_final_sort(t_stack **a, t_stack **b)
+int	get_last_ra_count(t_stack **a)
 {
-	show_p(a, b, 'a');
-	show_p(a, b, 'a');
-	if ((*a)->top->idx >= 3)
+	int		count;
+	t_node	*temp;
+
+	temp = (*a)->top;
+	count = 0;
+	while (1)
 	{
-		while ((*a)->top->idx != 0)
-			show_r(a, b, 'a');
+		if (temp->idx == 0)
+			break ;
+		count++;
+		temp = temp->next;
 	}
-	else
+	return (count);
+}
+
+int	get_last_rra_count(t_stack **a)
+{
+	int		count;
+	t_node	*temp;
+
+	temp = (*a)->top;
+	count = 0;
+	while (1)
 	{
-		while ((*a)->top->idx != 0)
-			show_rr(a, b, 'a');
+		if (temp->idx == 0)
+			break ;
+		count++;
+		temp = temp->prev;
 	}
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:05:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/03 14:26:46 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:23:04 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ void	print_list_reverse_idx(t_node **head)
 	}
 	printf("%d\n", curr_node->idx);
 }
-

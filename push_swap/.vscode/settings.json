@@ -1,8 +1,24 @@
 {
 	"files.associations": {
-		"array": "c",
+		"algorithm": "c",
+		"chrono": "c",
+		"locale": "c",
+		"vector": "c",
+		"__bit_reference": "c",
+		"__hash_table": "c",
+		"__mutex_base": "c",
+		"__string": "c",
+		"__undef_macros": "c",
+		"bitset": "c",
+		"cmath": "c",
+		"istream": "c",
+		"ratio": "c",
+		"streambuf": "c",
 		"string": "c",
 		"string_view": "c",
-		"vector": "c"
+		"complex": "c",
+		"limits": "c",
+		"push_swap.h": "c",
+		"ios": "c"
 	}
 }

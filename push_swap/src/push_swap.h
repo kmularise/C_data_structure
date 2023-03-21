@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/20 14:18:07 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:34:24 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stat{
 	int	max;
 	int	min;
 	int	count;
-	int *list;
+	int	*list;
 }	t_stat;
 
 typedef struct s_node {
@@ -42,6 +42,14 @@ typedef struct s_stack {
 	int				size;
 	struct s_node	*top;
 }	t_stack;
+
+typedef struct s_info
+{
+	int	left;
+	int	right;
+	int	pivot;
+	int	temp;
+}	t_info;
 
 t_node	*create_node(int data);
 void	push_node(t_node **head, t_node *node);
@@ -64,30 +72,32 @@ void	show_rr(t_stack **a, t_stack **b, char idx);
 void	show_error(char *message);
 int		binary_search(int value, int start, int end, int *list);
 int		get_index(int value, int *list, int count);
-int		min (int num1, int num2);
-void	get_min_node_info (t_node *a_top, t_node *b_top, t_node *temp, int *info);
+int		min(int num1, int num2);
 
+void	get_min_node_info(t_node *a_top, t_node *b_top,
+			t_node *temp, int *info);
 void	do_two_element(t_stack **a, t_stack **b);
-
 void	do_partition(t_stack **a, t_stack **b, t_stat *stat);
-int	*select_best_idx(t_stack **a, t_stack **b, t_stat *stat);
-void	do_sorting(t_stack **a, t_stack **b, t_stat *stat);
+int		*select_best_idx(t_stack **a, t_stack **b);
+void	do_sorting(t_stack **a, t_stack **b);
 
 int		find_count_rb(t_node *b_top, int idx);
 int		find_count_rrb(t_node *b_top, int idx);
 int		find_count_ra(t_node *a_top, int idx);
 int		find_count_rra(t_node *a_top, int idx);
-void	do_sorting(t_stack **a, t_stack **b, t_stat *stat);
-void	get_last_member_max(t_stack **a, t_stack **b, t_stat *stat);
+void	get_last_member_max(t_stack **a, t_stack **b);
 
-int	is_sorted(int argc, char **argv);
+int		is_sorted(int argc, char **argv);
 
 void	handle_few_input_case(t_stack **a, t_stack **b, t_stat *stat);
 void	do_two_element(t_stack **a, t_stack **b);
 void	do_three_element(t_stack **a, t_stack **b, int opt);
 void	do_four_element(t_stack **a, t_stack **b);
 void	do_five_element(t_stack **a, t_stack **b);
-
-//마지막에 
+int		get_last_ra_count(t_stack **a);
+int		get_last_rra_count(t_stack **a);
+void	make_final_sort(t_stack **a, t_stack **b);
+void	sort(int **sorted_list, int count, char **argv);
+void	check_same_number(int *sorted_list, int argc);
 
 #endif
