@@ -19,6 +19,7 @@
 		"complex": "c",
 		"limits": "c",
 		"push_swap.h": "c",
-		"ios": "c"
+		"ios": "c",
+		"ft_printf.h": "c"
 	}
 }

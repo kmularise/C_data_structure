@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:43:53 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/21 20:34:24 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:54:11 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 
 # define RA 0

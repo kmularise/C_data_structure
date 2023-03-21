@@ -6,7 +6,7 @@
 /*   By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:42:02 by yuikim            #+#    #+#             */
-/*   Updated: 2023/03/21 19:43:31 by yuikim           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:51:15 by yuikim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	show_s(t_stack **a, t_stack **b, char idx)
 		execute_s(a);
 	else if (idx == 'b')
 		execute_s(b);
-	printf("s%c\n", idx);
+	ft_printf("s%c\n", idx);
 }
 
 void	show_p(t_stack **a, t_stack **b, char idx)
@@ -32,7 +32,7 @@ void	show_p(t_stack **a, t_stack **b, char idx)
 		execute_p(a, b);
 	else if (idx == 'b')
 		execute_p(b, a);
-	printf("p%c\n", idx);
+	ft_printf("p%c\n", idx);
 }
 
 void	show_r(t_stack **a, t_stack **b, char idx)
@@ -46,7 +46,7 @@ void	show_r(t_stack **a, t_stack **b, char idx)
 		execute_r(a);
 		execute_r(b);
 	}
-	printf("r%c\n", idx);
+	ft_printf("r%c\n", idx);
 }
 
 void	show_rr(t_stack **a, t_stack **b, char idx)
@@ -60,5 +60,5 @@ void	show_rr(t_stack **a, t_stack **b, char idx)
 		execute_rr(a);
 		execute_rr(b);
 	}
-	printf("rr%c\n", idx);
+	ft_printf("rr%c\n", idx);
 }
