@@ -6,14 +6,14 @@
 #    By: yuikim <yuikim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 09:24:41 by yuikim            #+#    #+#              #
-#    Updated: 2023/03/21 21:10:09 by yuikim           ###   ########.fr        #
+#    Updated: 2023/03/22 12:06:17 by yuikim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-NAME_BONUS = pipex
+NAME_BONUS = checker
 
 SRCS_DIR = ./src/
 BONUS_DIR = ./bonus/
@@ -31,10 +31,13 @@ SRCS = stack.c\
 	push_swap_utils2.c\
 	algorithm2.c\
 	hard_coding2.c
-SRCS_BONUS = pipex_bonus.c\
-			child_bonus.c\
-			pipex_utils_bonus.c\
-			pipex_file_bonus.c
+SRCS_BONUS = checker_bonus.c\
+	checker_utils_bonus.c\
+	checker_utils2_bonus.c\
+	stack_bonus.c\
+	stack2_bonus.c\
+	push_swap_cmd_bonus.c\
+	push_swap_cmd2_bonus.c
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 SRCS_PATH = $(addprefix $(SRCS_DIR), $(SRCS))
@@ -50,7 +53,7 @@ $(NAME) : $(OBJS)
 
 bonus :	$(OBJS_BONUS)
 	make -C libft all
-	$(CC) $(CFLAGS) $(OBJS_BONUS) libft/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) libft/libft.a -o $(NAME_BONUS)
 
 clean :
 	make -C libft clean
